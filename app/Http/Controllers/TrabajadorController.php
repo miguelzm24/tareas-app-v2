@@ -18,14 +18,27 @@ class TrabajadorController extends Controller
         return view('trabajadores.create');
     }
 
+    public function edit($id) {
+        $trabajador = Trabajador::find($id);
+        return view('trabajadores.edit', compact('trabajador'));
+    }
+
     public function store(Request $request){
+        
+
+        $validate = $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'dni' => 'required|unique:trabajadores,dni',
+        ]);
+
         $trabajador = new Trabajador();
         $trabajador->nombre = $request->nombre;
         $trabajador->apellido = $request->apellido;
         $trabajador->dni = $request->dni;
         $trabajador->save();
-
-        return redirect('/trabajadores/index');
         //Trabajador::create($request->all());
+    
+        return redirect('/trabajadores/edit/'.$trabajador->id);
     }
 }

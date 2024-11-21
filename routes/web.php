@@ -15,4 +15,6 @@ Route::post('/tareas/store', [TareaController::class, 'store']);
 Route::get('/trabajadores/index', [TrabajadorController::class, 'index']);
 Route::get('/trabajadores/create', [TrabajadorController::class, 'create']);
 Route::post('/trabajadores/store', [TrabajadorController::class, 'store']);
+Route::get('/trabajadores/edit/{id}', [TrabajadorController::class, 'edit']);
+Route::put('/trabajadores/update/{id}', [TrabajadorController::class, 'update']);
 
