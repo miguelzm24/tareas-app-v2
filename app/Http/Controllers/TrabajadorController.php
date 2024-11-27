@@ -18,27 +18,33 @@ class TrabajadorController extends Controller
         return view('trabajadores.create');
     }
 
-    public function edit($id) {
+    public function show($id) {
         $trabajador = Trabajador::find($id);
-        return view('trabajadores.edit', compact('trabajador'));
+        return view('trabajadores.show', compact('trabajador'));
     }
 
     public function store(Request $request){
-        
+        $rules = [
+            'nombre' => 'required|string|max:50',
+            'apellido' => 'required|string|max:50',
+            'dni' => 'required|unique:trabajadores,dni|digits:8',
+        ];
+        $messages = [
+            'nombre.required' => 'El campo nombre es obligatorio',
+            'nombre.string' => 'El campo nombre debe ser un texto',
+            'nombre.max' => 'El campo nombre no debe superar los 50 caracteres',
+            'apellido.required' => 'El campo apellido es obligatorio',
+            'apellido.string' => 'El campo apellido debe ser un texto',
+            'apellido.max' => 'El campo apellido no debe superar los 50 caracteres',
+            'dni.required' => 'El campo dni es obligatorio',
+            'dni.unique' => 'El dni ya está en uso',
+            'dni.digits' => 'El dni debe tener 8 dígitos',
+        ];
 
-        $validate = $request->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'dni' => 'required|unique:trabajadores,dni',
-        ]);
+        $validatedData = $request->validate($rules, $messages);
 
-        $trabajador = new Trabajador();
-        $trabajador->nombre = $request->nombre;
-        $trabajador->apellido = $request->apellido;
-        $trabajador->dni = $request->dni;
-        $trabajador->save();
-        //Trabajador::create($request->all());
+        Trabajador::create($validatedData);
     
-        return redirect('/trabajadores/edit/'.$trabajador->id);
+        return redirect()->route('trabajadores.index')->with('success', 'Trabajador creado correctamente');
     }
 }

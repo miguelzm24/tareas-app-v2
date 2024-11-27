@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajadores</title>
-</head>
-<body>
-    <h1>Lista trabajadores</h1>
-    <ul>
-        @foreach ($trabajadores as $trabajador)
-            <li><a href="/trabajadores/edit/{{ $trabajador->id }}">{{ $trabajador->nombre }} {{ $trabajador->apellidos }}</a></li>
-        @endforeach
-    </ul>
-    <a href="/trabajadores/create">Formulario para añadir trabajador</a>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <h1 class="my-4">Lista de Trabajadores</h1>
+        <ul class="list-group">
+            @foreach ($trabajadores as $trabajador)
+                <li class="list-group-item">
+                    <a href="/trabajadores/show/{{ $trabajador->id }}">{{ $trabajador->nombre }} {{ $trabajador->apellidos }}</a>
+                </li>
+            @endforeach
+        </ul>
+        <a href="/trabajadores/create" class="btn btn-primary mt-4">Formulario para añadir trabajador</a>
+    </div>
+@endsection

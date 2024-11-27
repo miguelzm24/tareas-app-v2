@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
-</head>
-<body>
-    <h1>Lista tareas</h1>
-    <a href="/tareas/create">Formulario para añadir tarea</a>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <h1 class="my-4">Lista de Tareas</h1>
+        <ul class="list-group">
+            @foreach ($tareas as $tarea)
+                <li class="list-group-item">
+                    <a href="/tareas/edit/{{ $tarea->id }}">{{ $tarea->titulo }}</a>
+                </li>
+            @endforeach
+        </ul>
+        <a href="{{ route('tareas.create') }}" class="btn btn-primary mt-4">Formulario para añadir tarea</a>
+    </div>
+@endsection

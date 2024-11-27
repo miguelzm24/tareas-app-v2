@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->foreignId('trabajador_id')->references('id')->on('trabajadores');
+            $table->foreignId('trabajador_id')->constrained('trabajadores')->onDelete('cascade');
             $table->text('descripcion');
             $table->date('fecha_limite');
             $table->timestamps();
