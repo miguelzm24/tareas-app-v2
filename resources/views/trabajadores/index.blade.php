@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <div class="container">
         <h1 class="my-4">Lista de Trabajadores</h1>
         <ul class="list-group">
@@ -12,4 +10,4 @@
         </ul>
         <a href="/trabajadores/create" class="btn btn-primary mt-4">Formulario para añadir trabajador</a>
     </div>
-@endsection
+</x-layout>

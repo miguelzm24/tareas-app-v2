@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <div class="container">
         <h1 class="my-4">Datos del trabajador</h1>
         <div class="card mb-3">
@@ -20,4 +18,4 @@
             @endforeach
         </ul>
     </div>
-@endsection
+</x-layout>

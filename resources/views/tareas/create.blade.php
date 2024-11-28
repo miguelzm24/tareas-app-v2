@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <h1>Añadir tarea</h1>
     <div class="form col-md-4">
         <form action="/tareas/store" method="post">
@@ -30,4 +28,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-layout>

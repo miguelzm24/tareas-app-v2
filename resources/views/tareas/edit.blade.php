@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <h1>Editar tarea</h1>
     <div class="form col-md-4">
         <form action="{{route('tareas.update', $tarea->id)}}" method="post">
@@ -8,11 +6,11 @@
             @method('PUT')
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo tarea" value="{{$tarea->titulo}}">
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título tarea" value="{{$tarea->titulo}}">
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion tarea">{{$tarea->descripcion}}</textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción tarea">{{$tarea->descripcion}}</textarea>
             </div>
             <div class="form-group">
                 <label for="fecha_limite">Fecha límite</label>
@@ -31,4 +29,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-layout>

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <div class="container">
         <h1 class="my-4">Añadir trabajador</h1>
         <form action="/trabajadores/store" method="post">
@@ -30,4 +28,4 @@
             <button type="submit" class="btn btn-primary">Añadir trabajador</button>
         </form>
     </div>
-@endsection
+</x-layout>
