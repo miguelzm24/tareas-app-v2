@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/trabajadores/create', [TrabajadorController::class, 'create'])->name('trabajadores.create');
     Route::post('/trabajadores/store', [TrabajadorController::class, 'store'])->name('trabajadores.store');
     Route::get('/trabajadores/show/{id}', [TrabajadorController::class, 'show'])->name('trabajadores.show');
+
 });
 
 require __DIR__ . '/auth.php';
