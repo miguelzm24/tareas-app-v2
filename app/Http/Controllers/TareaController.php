@@ -40,6 +40,7 @@ class TareaController extends Controller
         ];
         $validatedData = $request->validate($rules, $messages);
         Tarea::create($validatedData);
+
         return redirect()->route('tareas.index');
     }
 

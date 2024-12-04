@@ -1,6 +1,6 @@
-<x-layout>
+<x-app-layout>
     <h1>Editar tarea</h1>
-    <div class="form col-md-4">
+    <div class="form">
         <form action="{{route('tareas.update', $tarea->id)}}" method="post">
             @csrf
             @method('PUT')
@@ -29,4 +29,4 @@
             </div>
         </form>
     </div>
-</x-layout>
+</x-app-layout>

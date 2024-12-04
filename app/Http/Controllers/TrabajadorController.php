@@ -11,6 +11,7 @@ class TrabajadorController extends Controller
     public function index() {
         $trabajadores = Trabajador::all();
         return view('trabajadores.index', compact('trabajadores'));
+        //return response()->json($trabajadores);
 
     }
 
@@ -21,6 +22,8 @@ class TrabajadorController extends Controller
     public function show($id) {
         $trabajador = Trabajador::find($id);
         return view('trabajadores.show', compact('trabajador'));
+        //return response()->json($trabajador);
+
     }
 
     public function store(Request $request){
@@ -46,5 +49,6 @@ class TrabajadorController extends Controller
         Trabajador::create($validatedData);
     
         return redirect()->route('trabajadores.index')->with('success', 'Trabajador creado correctamente');
+        //return response()->json(['message' => 'Trabajador creado correctamente']);
     }
 }

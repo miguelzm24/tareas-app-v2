@@ -1,6 +1,6 @@
-<x-layout>
+<x-app-layout>
     <h1>Añadir tarea</h1>
-    <div class="form col-md-4">
+    <div class="form">
         <form action="/tareas/store" method="post">
             @csrf
             <div class="form-group">
@@ -28,4 +28,4 @@
             </div>
         </form>
     </div>
-</x-layout>
+</x-app-layout>

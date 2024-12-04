@@ -1,13 +1,13 @@
-<x-layout>
-    <div class="container">
-        <h1 class="my-4">Lista de Trabajadores</h1>
-        <ul class="list-group">
+<x-app-layout>
+    <div>
+        <h1>Lista de Trabajadores</h1>
+        <ul>
             @foreach ($trabajadores as $trabajador)
-                <li class="list-group-item">
+                <li>
                     <a href="/trabajadores/show/{{ $trabajador->id }}">{{ $trabajador->nombre }} {{ $trabajador->apellidos }}</a>
                 </li>
             @endforeach
         </ul>
-        <a href="/trabajadores/create" class="btn btn-primary mt-4">Formulario para añadir trabajador</a>
+        <a href="/trabajadores/create">Formulario para añadir trabajador</a>
     </div>
-</x-layout>
+</x-app-layout>

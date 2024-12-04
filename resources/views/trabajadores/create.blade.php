@@ -1,10 +1,10 @@
-<x-layout>
-    <div class="container">
-        <h1 class="my-4">Añadir trabajador</h1>
+<x-app-layout>
+    <div>
+        <h1>Añadir trabajador</h1>
         <form action="/trabajadores/store" method="post">
             @csrf
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div>
                     <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -13,7 +13,7 @@
                 </div>
             @endif
 
-            <div class="form-group">
+            <div>
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre trabajador">
             </div>
@@ -28,4 +28,4 @@
             <button type="submit" class="btn btn-primary">Añadir trabajador</button>
         </form>
     </div>
-</x-layout>
+</x-app-layout>
