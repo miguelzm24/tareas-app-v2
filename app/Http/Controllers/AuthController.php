@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,8 @@ class AuthController extends Controller
         ]);
 
         $user = User::create($validated);
+
+        event(new Registered($user));
 
         $token = $user->createToken('auth_token');
 
